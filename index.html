@@ -45,7 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Tictax</a>
+          <a class="navbar-brand" href="#">Tictacs</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -60,8 +60,8 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Tic Tac Toe: WDI Week 3</h1>
-        <p class="lead"><br></p>
+        <h1>Tic-Tac-Toe: WDI Week 3</h1>
+        <p class="lead"></p>
       </div>
 
       <div class="row">
@@ -76,7 +76,11 @@
         </div>
       </div>
       <div class="row">
-        <div id="sq4" class="game_square col-lg-offset-4">
+        <button id="refresh" class="col-lg-offset-1 hidden-xs">
+          Refresh
+        </button>
+
+        <div id="sq4" class="game_square col-lg-offset-2">
           <img id="char4" class="black" src="images/black.png" alt="">
         </div>
         <div id="sq5" class="game_square">
@@ -84,6 +88,13 @@
         </div>
         <div id="sq6" class="game_square">
           <img id="char6" class="black" src="images/black.png" alt="">
+        </div>
+
+        <div id="scorebox" class="col-lg-offset-2 hidden-xs">
+          <div id="show_winner"></div>
+          <div>Score</div>
+          <div>X: <span id="x_score" value="0">0</span></div>
+          <div>O: <span id="o_score" value="0">0</span></div>
         </div>
       </div>
       <div class="row">
@@ -98,7 +109,11 @@
         </div>
       </div>
 
-      <button id="play_first" class="no">Turn Play-First On</button>
+      <div class="row">
+        <button id="x_first" class="no">
+          Turn X-First On
+        </button>
+      </div>
 
 
     </div><!-- /.container -->

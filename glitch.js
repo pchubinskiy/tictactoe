@@ -5,22 +5,24 @@ var oh = "images/oh.png";
 var turn = Math.floor(Math.random() * 10);
 var i = 1;
 var j = 10;
+//var w = 0;
 
 function clearBoard() {
-  openSquares();
   $('#char1, #char2, #char3, #char4, #char5, #char6, #char7, #char8, #char9').removeClass().addClass('black').attr("src", "images/black.png");
   i = 1;
   j = 10;
+  // $('#char1').removeClass().addClass('black').attr("src", "images/black.png");
+  // $('#char2').removeClass().addClass('black').attr("src", "images/black.png");
+  // $('#char3').removeClass().addClass('black').attr("src", "images/black.png");
+  // $('#char4').removeClass().addClass('black').attr("src", "images/black.png");
+  // $('#char5').removeClass().addClass('black').attr("src", "images/black.png");
+  // $('#char6').removeClass().addClass('black').attr("src", "images/black.png");
+  // $('#char7').removeClass().addClass('black').attr("src", "images/black.png");
+  // $('#char8').removeClass().addClass('black').attr("src", "images/black.png");
+  // $('#char9').removeClass().addClass('black').attr("src", "images/black.png");
 }
 
-function closeSquares() {
-  $('#char1, #char2, #char3, #char4, #char5, #char6, #char7, #char8, #char9').addClass('busy');
-}
-
-function openSquares() {
-  $('#char1, #char2, #char3, #char4, #char5, #char6, #char7, #char8, #char9').removeClass('busy');
-}
-
+//include tie condition
 function updateScore(winner) {
   if (winner === "ex") {
     var x_score = $('#x_score').text();
@@ -47,7 +49,6 @@ function colorSquares(one, two, three) {
   // } else if (color < 33) {
   //   color = 'yel';
   // }
-  closeSquares();
 
   if (one === "#char1" && two === "#char2" && three === "#char3") {
       $('#sq1').removeClass('game_square').addClass('cya');
@@ -125,49 +126,49 @@ function chkWin() {
   }
 
   //check for X
-  if ($('#char1').hasClass('ex') && $('#char2').hasClass('ex') && $('#char3').hasClass('ex')) {
+  if ($('#char1, #char2, #char3').hasClass('ex')) {
     colorSquares("#char1", "#char2", "#char3");
     setTimeout(decolorSquares, 1000);
     setTimeout(clearBoard, 1000);
     updateScore('ex');
   }
-  if ($('#char4').hasClass('ex') && $('#char5').hasClass('ex') && $('#char6').hasClass('ex')) {
+  if ($('#char4, #char5, #char6').hasClass('ex')) {
     colorSquares("#char4", "#char5", "#char6");
     setTimeout(decolorSquares, 1000);
     setTimeout(clearBoard, 1000);
     updateScore("ex");
   }
-  if ($('#char7').hasClass('ex') && $('#char8').hasClass('ex') && $('#char9').hasClass('ex')) {
+  if ($('#char7, #char8, #char9').hasClass('ex')) {
     colorSquares("#char7", "#char8", "#char9");
     setTimeout(decolorSquares, 1000);
     setTimeout(clearBoard, 1000);
     updateScore("ex");
   }
-  if ($('#char1').hasClass('ex') && $('#char4').hasClass('ex') && $('#char7').hasClass('ex')) {
+  if ($('#char1, #char4, #char7').hasClass('ex')) {
     colorSquares("#char1", "#char4", "#char7");
     setTimeout(decolorSquares, 1000);
     setTimeout(clearBoard, 1000);
     updateScore("ex");
   }
-  if ($('#char2').hasClass('ex') && $('#char5').hasClass('ex') && $('#char8').hasClass('ex')) {
+  if ($('#char2, #char5, #char8').hasClass('ex')) {
     colorSquares("#char2", "#char5", "#char8");
     setTimeout(decolorSquares, 1000);
     setTimeout(clearBoard, 1000);
     updateScore("ex");
   }
-  if ($('#char3').hasClass('ex') && $('#char6').hasClass('ex') && $('#char9').hasClass('ex')) {
+  if ($('#char3, #char6, #char9').hasClass('ex')) {
     colorSquares("#char3", "#char6", "#char9");
     setTimeout(decolorSquares, 1000);
     setTimeout(clearBoard, 1000);
     updateScore("ex");
   }
-  if ($('#char1').hasClass('ex') && $('#char5').hasClass('ex') && $('#char9').hasClass('ex')) {
+  if ($('#char1, #char5, #char9').hasClass('ex')) {
     colorSquares("#char1", "#char5", "#char9");
     setTimeout(decolorSquares, 1000);
     setTimeout(clearBoard, 1000);
     updateScore("ex");
   }
-  if ($('#char3').hasClass('ex') && $('#char5').hasClass('ex') && $('#char7').hasClass('ex')) {
+  if ($('#char3, #char5, #char7').hasClass('ex')) {
     console.log("wee hoo");
     colorSquares("#char3", "#char5", "#char7");
     setTimeout(decolorSquares, 1000);
@@ -176,49 +177,49 @@ function chkWin() {
   }
 
   //check for O
-  if ($('#char1').hasClass('oh') && $('#char2').hasClass('oh') && $('#char3').hasClass('oh')) {
+  if ($('#char1, #char2, #char3').hasClass('oh')) {
     colorSquares("#char1", "#char2", "#char3");
     setTimeout(decolorSquares, 1000);
     setTimeout(clearBoard, 1000);
     updateScore("oh");
   }
-  if ($('#char4').hasClass('oh') && $('#char5').hasClass('oh') && $('#char6').hasClass('oh')) {
+  if ($('#char4, #char5, #char6').hasClass('oh')) {
     colorSquares("#char4", "#char5", "#char6");
     setTimeout(decolorSquares, 1000);
     setTimeout(clearBoard, 1000);
     updateScore("oh");
   }
-  if ($('#char7').hasClass('oh') && $('#char8').hasClass('oh') && $('#char9').hasClass('oh')) {
+  if ($('#char7, #char8, #char9').hasClass('oh')) {
     colorSquares("#char7", "#char8", "#char9");
     setTimeout(decolorSquares, 1000);
     setTimeout(clearBoard, 1000);
     updateScore("oh");
   }
-  if ($('#char1').hasClass('oh') && $('#char4').hasClass('oh') && $('#char7').hasClass('oh')) {
+  if ($('#char1, #char4, #char7').hasClass('oh')) {
     colorSquares("#char1", "#char4", "#char7");
     setTimeout(decolorSquares, 1000);
     setTimeout(clearBoard, 1000);
     updateScore("oh");
   }
-  if ($('#char2').hasClass('oh') && $('#char5').hasClass('oh') && $('#char8').hasClass('oh')) {
+  if ($('#char2, #char5, #char8').hasClass('oh')) {
     colorSquares("#char2", "#char5", "#char8");
     setTimeout(decolorSquares, 1000);
     setTimeout(clearBoard, 1000);
     updateScore("oh");
   }
-  if ($('#char3').hasClass('oh') && $('#char6').hasClass('oh') && $('#char9').hasClass('oh')) {
+  if ($('#char3, #char6, #char9').hasClass('oh')) {
     colorSquares("#char3", "#char6", "#char9");
     setTimeout(decolorSquares, 1000);
     setTimeout(clearBoard, 1000);
     updateScore("oh");
   }
-  if ($('#char1').hasClass('oh') && $('#char5').hasClass('oh') && $('#char9').hasClass('oh')) {
+  if ($('#char1, #char5, #char9').hasClass('oh')) {
     colorSquares("#char1", "#char5", "#char9");
     setTimeout(decolorSquares, 1000);
     setTimeout(clearBoard, 1000);
     updateScore("oh");
   }
-  if ($('#char3').hasClass('oh') && $('#char5').hasClass('oh') && $('#char7').hasClass('oh')) {
+  if ($('#char3, #char5, #char7').hasClass('oh')) {
     colorSquares("#char3", "#char5", "#char7");
     setTimeout(decolorSquares, 1000);
     setTimeout(clearBoard, 1000);
@@ -305,7 +306,7 @@ $('#o_score').change(function() {
 });
 
 $("#sq1").click(function() {
-  if (!$('#char1').hasClass('black') || $('#char1').hasClass('busy')) {
+  if (!$('#char1').hasClass('black')) {
     return false;
   } else {
     $('#char1').removeClass("black").addClass(localStorage[j]).attr("src", localStorage[i]);
@@ -316,7 +317,7 @@ $("#sq1").click(function() {
   chkWin();
 });
 $("#sq2").click(function() {
-  if (!$('#char2').hasClass('black') || $('#char1').hasClass('busy')) {
+  if (!$('#char2').hasClass('black')) {
     return false;
   } else {
     $('#char2').removeClass("black").addClass(localStorage[j]).attr("src", localStorage[i]);
@@ -327,7 +328,7 @@ $("#sq2").click(function() {
   chkWin();
 });
 $("#sq3").click(function() {
-  if (!$('#char3').hasClass('black') || $('#char1').hasClass('busy')) {
+  if (!$('#char3').hasClass('black')) {
     return false;
   } else {
     $('#char3').removeClass("black").addClass(localStorage[j]).attr("src", localStorage[i]);
@@ -339,7 +340,7 @@ $("#sq3").click(function() {
 });
 
 $("#sq4").click(function() {
-  if (!$('#char4').hasClass('black') || $('#char1').hasClass('busy')) {
+  if (!$('#char4').hasClass('black')) {
     return false;
   } else {
     $('#char4').removeClass("black").addClass(localStorage[j]).attr("src", localStorage[i]);
@@ -350,7 +351,7 @@ $("#sq4").click(function() {
   chkWin();
 });
 $("#sq5").click(function() {
-  if (!$('#char5').hasClass('black') || $('#char1').hasClass('busy')) {
+  if (!$('#char5').hasClass('black')) {
     return false;
   } else {
     $('#char5').removeClass("black").addClass(localStorage[j]).attr("src", localStorage[i]);
@@ -361,7 +362,7 @@ $("#sq5").click(function() {
   chkWin();
 });
 $("#sq6").click(function() {
-  if (!$('#char6').hasClass('black') || $('#char1').hasClass('busy')) {
+  if (!$('#char6').hasClass('black')) {
     return false;
   } else {
     $('#char6').removeClass("black").addClass(localStorage[j]).attr("src", localStorage[i]);
@@ -373,7 +374,7 @@ $("#sq6").click(function() {
 });
 
 $("#sq7").click(function() {
-  if (!$('#char7').hasClass('black') || $('#char1').hasClass('busy')) {
+  if (!$('#char7').hasClass('black')) {
     return false;
   } else {
     $('#char7').removeClass("black").addClass(localStorage[j]).attr("src", localStorage[i]);
@@ -384,7 +385,7 @@ $("#sq7").click(function() {
   chkWin();
 });
 $("#sq8").click(function() {
-  if (!$('#char8').hasClass('black') || $('#char1').hasClass('busy')) {
+  if (!$('#char8').hasClass('black')) {
     return false;
   } else {
     $('#char8').removeClass("black").addClass(localStorage[j]).attr("src", localStorage[i]);
@@ -395,7 +396,7 @@ $("#sq8").click(function() {
   chkWin();
 });
 $("#sq9").click(function() {
-  if (!$('#char9').hasClass('black') || $('#char1').hasClass('busy')) {
+  if (!$('#char9').hasClass('black')) {
     return false;
   } else {
     $('#char9').removeClass("black").addClass(localStorage[j]).attr("src", localStorage[i]);
@@ -404,10 +405,6 @@ $("#sq9").click(function() {
   }
   console.log("clicked9");
   chkWin();
-});
-
-$('#refresh').click(function() {
-    location.reload();
 });
 
 // $(document).click(function() {
