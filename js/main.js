@@ -1,16 +1,212 @@
 $(function() {
 
+var turn = Math.floor(Math.random() * 10);
 var ex = "images/ex.png";
 var oh = "images/oh.png";
-var turn = Math.floor(Math.random() * 10);
 var i = 1;
 var j = 10;
+var k = 20;
+var l = 30;
 
 function clearBoard() {
   openSquares();
   $('#char1, #char2, #char3, #char4, #char5, #char6, #char7, #char8, #char9').removeClass().addClass('black').attr("src", "images/black.png");
   i = 1;
   j = 10;
+  k = 20;
+  l = 30;
+}
+
+function xFirst() {
+  if ($('#x_first').hasClass('yes')) {
+    $('#x_first').removeClass('yes').addClass('no').text("Turn X-First On");
+    //used for assigning X/O/Black image
+    localStorage.setItem(1, oh);
+    localStorage.setItem(2, ex);
+    localStorage.setItem(3, oh);
+    localStorage.setItem(4, ex);
+    localStorage.setItem(5, oh);
+    localStorage.setItem(6, ex);
+    localStorage.setItem(7, oh);
+    localStorage.setItem(8, ex);
+    localStorage.setItem(9, oh);
+
+    //used for recording X/O mark
+    localStorage.setItem(10, 'oh');
+    localStorage.setItem(11, 'ex');
+    localStorage.setItem(12, 'oh');
+    localStorage.setItem(13, 'ex');
+    localStorage.setItem(14, 'oh');
+    localStorage.setItem(15, 'ex');
+    localStorage.setItem(16, 'oh');
+    localStorage.setItem(17, 'ex');
+    localStorage.setItem(18, 'oh');
+
+    localStorage.setItem(20, '');
+    localStorage.setItem(21, '');
+    localStorage.setItem(22, '');
+    localStorage.setItem(23, '');
+    localStorage.setItem(24, '');
+    localStorage.setItem(25, '');
+    localStorage.setItem(26, '');
+    localStorage.setItem(27, '');
+    localStorage.setItem(28, '');
+
+    localStorage.setItem(30, '');
+    localStorage.setItem(31, '');
+    localStorage.setItem(32, '');
+    localStorage.setItem(33, '');
+    localStorage.setItem(34, '');
+    localStorage.setItem(35, '');
+    localStorage.setItem(36, '');
+    localStorage.setItem(37, '');
+    localStorage.setItem(38, '');
+
+    //record of mark
+    // localStorage.setItem(20, 'black');
+    // localStorage.setItem(21, 'black');
+    // localStorage.setItem(22, 'black');
+    // localStorage.setItem(23, 'black');
+    // localStorage.setItem(24, 'black');
+    // localStorage.setItem(25, 'black');
+    // localStorage.setItem(26, 'black');
+    // localStorage.setItem(27, 'black');
+    // localStorage.setItem(28, 'black');
+
+    // //record of board state
+    // localStorage.setItem(30, 'busy');
+    // localStorage.setItem(31, 'busy');
+    // localStorage.setItem(32, 'busy');
+    // localStorage.setItem(33, 'busy');
+    // localStorage.setItem(34, 'busy');
+    // localStorage.setItem(35, 'busy');
+    // localStorage.setItem(36, 'busy');
+    // localStorage.setItem(37, 'busy');
+    // localStorage.setItem(38, 'busy');
+  } else {
+    $('#x_first').removeClass('no').addClass('yes').text("Turn X-First Off");
+    localStorage.setItem(1, ex);
+    localStorage.setItem(2, oh);
+    localStorage.setItem(3, ex);
+    localStorage.setItem(4, oh);
+    localStorage.setItem(5, ex);
+    localStorage.setItem(6, oh);
+    localStorage.setItem(7, ex);
+    localStorage.setItem(8, oh);
+    localStorage.setItem(9, ex);
+
+    localStorage.setItem(10, 'ex');
+    localStorage.setItem(11, 'oh');
+    localStorage.setItem(12, 'ex');
+    localStorage.setItem(13, 'oh');
+    localStorage.setItem(14, 'ex');
+    localStorage.setItem(15, 'oh');
+    localStorage.setItem(16, 'ex');
+    localStorage.setItem(17, 'oh');
+    localStorage.setItem(18, 'ex');
+
+  localStorage.setItem(20, '');
+  localStorage.setItem(21, '');
+  localStorage.setItem(22, '');
+  localStorage.setItem(23, '');
+  localStorage.setItem(24, '');
+  localStorage.setItem(25, '');
+  localStorage.setItem(26, '');
+  localStorage.setItem(27, '');
+  localStorage.setItem(28, '');
+
+  localStorage.setItem(30, '');
+  localStorage.setItem(31, '');
+  localStorage.setItem(32, '');
+  localStorage.setItem(33, '');
+  localStorage.setItem(34, '');
+  localStorage.setItem(35, '');
+  localStorage.setItem(36, '');
+  localStorage.setItem(37, '');
+  localStorage.setItem(38, '');
+  }
+}
+
+if (turn >= 5) {
+  localStorage.setItem(1, ex);
+  localStorage.setItem(2, oh);
+  localStorage.setItem(3, ex);
+  localStorage.setItem(4, oh);
+  localStorage.setItem(5, ex);
+  localStorage.setItem(6, oh);
+  localStorage.setItem(7, ex);
+  localStorage.setItem(8, oh);
+  localStorage.setItem(9, ex);
+
+  localStorage.setItem(10, 'ex');
+  localStorage.setItem(11, 'oh');
+  localStorage.setItem(12, 'ex');
+  localStorage.setItem(13, 'oh');
+  localStorage.setItem(14, 'ex');
+  localStorage.setItem(15, 'oh');
+  localStorage.setItem(16, 'ex');
+  localStorage.setItem(17, 'oh');
+  localStorage.setItem(18, 'ex');
+
+  localStorage.setItem(20, '');
+  localStorage.setItem(21, '');
+  localStorage.setItem(22, '');
+  localStorage.setItem(23, '');
+  localStorage.setItem(24, '');
+  localStorage.setItem(25, '');
+  localStorage.setItem(26, '');
+  localStorage.setItem(27, '');
+  localStorage.setItem(28, '');
+
+  localStorage.setItem(30, '');
+  localStorage.setItem(31, '');
+  localStorage.setItem(32, '');
+  localStorage.setItem(33, '');
+  localStorage.setItem(34, '');
+  localStorage.setItem(35, '');
+  localStorage.setItem(36, '');
+  localStorage.setItem(37, '');
+  localStorage.setItem(38, '');
+} else {
+  localStorage.setItem(1, oh);
+  localStorage.setItem(2, ex);
+  localStorage.setItem(3, oh);
+  localStorage.setItem(4, ex);
+  localStorage.setItem(5, oh);
+  localStorage.setItem(6, ex);
+  localStorage.setItem(7, oh);
+  localStorage.setItem(8, ex);
+  localStorage.setItem(9, oh);
+
+  localStorage.setItem(10, 'oh');
+  localStorage.setItem(11, 'ex');
+  localStorage.setItem(12, 'oh');
+  localStorage.setItem(13, 'ex');
+  localStorage.setItem(14, 'oh');
+  localStorage.setItem(15, 'ex');
+  localStorage.setItem(16, 'oh');
+  localStorage.setItem(17, 'ex');
+  localStorage.setItem(18, 'oh');
+
+  localStorage.setItem(20, '');
+  localStorage.setItem(21, '');
+  localStorage.setItem(22, '');
+  localStorage.setItem(23, '');
+  localStorage.setItem(24, '');
+  localStorage.setItem(25, '');
+  localStorage.setItem(26, '');
+  localStorage.setItem(27, '');
+  localStorage.setItem(28, '');
+
+  localStorage.setItem(30, '');
+  localStorage.setItem(31, '');
+  localStorage.setItem(32, '');
+  localStorage.setItem(33, '');
+  localStorage.setItem(34, '');
+  localStorage.setItem(35, '');
+  localStorage.setItem(36, '');
+  localStorage.setItem(37, '');
+  localStorage.setItem(38, '');
 }
 
 function closeSquares() {
@@ -81,8 +277,6 @@ function colorSquares(one, two, three) {
       $('#sq7').removeClass('game_square').addClass('cya');
       $('#sq5').removeClass('game_square').addClass('mag');
       $('#sq3').removeClass('game_square').addClass('yel');
-  } else {
-      console.log("no match");
   }
 }
 
@@ -168,7 +362,6 @@ function chkWin() {
     updateScore("ex");
   }
   if ($('#char3').hasClass('ex') && $('#char5').hasClass('ex') && $('#char7').hasClass('ex')) {
-    console.log("wee hoo");
     colorSquares("#char3", "#char5", "#char7");
     setTimeout(decolorSquares, 1000);
     setTimeout(clearBoard, 1000);
@@ -226,74 +419,6 @@ function chkWin() {
   }
 }
 
-function xFirst() {
-  if ($('#x_first').hasClass('yes')) {
-    $('#x_first').removeClass('yes').addClass('no').text("Turn X-First On");
-    localStorage.setItem(1, oh);
-    localStorage.setItem(2, ex);
-    localStorage.setItem(3, oh);
-    localStorage.setItem(4, ex);
-    localStorage.setItem(5, oh);
-    localStorage.setItem(6, ex);
-    localStorage.setItem(7, oh);
-    localStorage.setItem(8, ex);
-    localStorage.setItem(9, oh);
-  } else {
-    $('#x_first').removeClass('no').addClass('yes').text("Turn X-First Off");
-    localStorage.setItem(1, ex);
-    localStorage.setItem(2, oh);
-    localStorage.setItem(3, ex);
-    localStorage.setItem(4, oh);
-    localStorage.setItem(5, ex);
-    localStorage.setItem(6, oh);
-    localStorage.setItem(7, ex);
-    localStorage.setItem(8, oh);
-    localStorage.setItem(9, ex);
-  }
-}
-
-if (turn >= 5) {
-  localStorage.setItem(1, ex);
-  localStorage.setItem(2, oh);
-  localStorage.setItem(3, ex);
-  localStorage.setItem(4, oh);
-  localStorage.setItem(5, ex);
-  localStorage.setItem(6, oh);
-  localStorage.setItem(7, ex);
-  localStorage.setItem(8, oh);
-  localStorage.setItem(9, ex);
-
-  localStorage.setItem(10, 'ex');
-  localStorage.setItem(11, 'oh');
-  localStorage.setItem(12, 'ex');
-  localStorage.setItem(13, 'oh');
-  localStorage.setItem(14, 'ex');
-  localStorage.setItem(15, 'oh');
-  localStorage.setItem(16, 'ex');
-  localStorage.setItem(17, 'oh');
-  localStorage.setItem(18, 'ex');
-} else {
-  localStorage.setItem(1, oh);
-  localStorage.setItem(2, ex);
-  localStorage.setItem(3, oh);
-  localStorage.setItem(4, ex);
-  localStorage.setItem(5, oh);
-  localStorage.setItem(6, ex);
-  localStorage.setItem(7, oh);
-  localStorage.setItem(8, ex);
-  localStorage.setItem(9, oh);
-
-  localStorage.setItem(10, 'oh');
-  localStorage.setItem(11, 'ex');
-  localStorage.setItem(12, 'oh');
-  localStorage.setItem(13, 'ex');
-  localStorage.setItem(14, 'oh');
-  localStorage.setItem(15, 'ex');
-  localStorage.setItem(16, 'oh');
-  localStorage.setItem(17, 'ex');
-  localStorage.setItem(18, 'oh');
-}
-
 $('#x_first').click(function() {
   xFirst();
 });
@@ -305,116 +430,100 @@ $('#o_score').change(function() {
 });
 
 $("#sq1").click(function() {
-  if (!$('#char1').hasClass('black') || $('#char1').hasClass('busy')) {
+  if (localStorage[20] === 'black' || localStorage[30] === 'busy') {
     return false;
   } else {
-    $('#char1').removeClass("black").addClass(localStorage[j]).attr("src", localStorage[i]);
+    localStorage.setItem(20, localStorage[10]);
+    $('#char1').attr("src", localStorage[i]);
     i+=1;
-    j+=1;
   }
-  console.log("clicked1");
   chkWin();
 });
 $("#sq2").click(function() {
-  if (!$('#char2').hasClass('black') || $('#char1').hasClass('busy')) {
+  if (localStorage[21] === 'black' || localStorage[31] === 'busy') {
     return false;
   } else {
-    $('#char2').removeClass("black").addClass(localStorage[j]).attr("src", localStorage[i]);
+    localStorage.setItem(21, localStorage[11]);
+    $('#char2').attr("src", localStorage[i]);
     i+=1;
-    j+=1;
   }
-  console.log("clicked2");
   chkWin();
 });
 $("#sq3").click(function() {
-  if (!$('#char3').hasClass('black') || $('#char1').hasClass('busy')) {
+  if (localStorage[22] === 'black' || localStorage[32] === 'busy') {
     return false;
   } else {
-    $('#char3').removeClass("black").addClass(localStorage[j]).attr("src", localStorage[i]);
+    localStorage.setItem(22, localStorage[12]);
+    $('#char3').attr("src", localStorage[i]);
     i+=1;
-    j+=1;
   }
-  console.log("clicked3");
   chkWin();
 });
 
 $("#sq4").click(function() {
-  if (!$('#char4').hasClass('black') || $('#char1').hasClass('busy')) {
+  if (localStorage[23] === 'black' || localStorage[33] === 'busy') {
     return false;
   } else {
-    $('#char4').removeClass("black").addClass(localStorage[j]).attr("src", localStorage[i]);
+    localStorage.setItem(23, localStorage[13]);
+    $('#char4').attr("src", localStorage[i]);
     i+=1;
-    j+=1;
   }
-  console.log("clicked4");
   chkWin();
 });
 $("#sq5").click(function() {
-  if (!$('#char5').hasClass('black') || $('#char1').hasClass('busy')) {
+  if (localStorage[24] === 'black' || localStorage[34] === 'busy') {
     return false;
   } else {
-    $('#char5').removeClass("black").addClass(localStorage[j]).attr("src", localStorage[i]);
+    localStorage.setItem(24, localStorage[14]);
+    $('#char5').attr("src", localStorage[i]);
     i+=1;
-    j+=1;
   }
-  console.log("clicked5");
   chkWin();
 });
 $("#sq6").click(function() {
-  if (!$('#char6').hasClass('black') || $('#char1').hasClass('busy')) {
+  if (localStorage[25] === 'black' || localStorage[35] === 'busy') {
     return false;
   } else {
-    $('#char6').removeClass("black").addClass(localStorage[j]).attr("src", localStorage[i]);
+    localStorage.setItem(25, localStorage[15]);
+    $('#char6').attr("src", localStorage[i]);
     i+=1;
-    j+=1;
   }
-  console.log("clicked6");
   chkWin();
 });
 
 $("#sq7").click(function() {
-  if (!$('#char7').hasClass('black') || $('#char1').hasClass('busy')) {
+  if (localStorage[26] === 'black' || localStorage[36] === 'busy') {
     return false;
   } else {
-    $('#char7').removeClass("black").addClass(localStorage[j]).attr("src", localStorage[i]);
+    localStorage.setItem(26, localStorage[16]);
+    $('#char7').attr("src", localStorage[i]);
     i+=1;
-    j+=1;
   }
-  console.log("clicked7");
   chkWin();
 });
 $("#sq8").click(function() {
-  if (!$('#char8').hasClass('black') || $('#char1').hasClass('busy')) {
+  if (localStorage[27] === 'black' || localStorage[37] === 'busy') {
     return false;
   } else {
-    $('#char8').removeClass("black").addClass(localStorage[j]).attr("src", localStorage[i]);
+    localStorage.setItem(27, localStorage[17]);
+    $('#char8').attr("src", localStorage[i]);
     i+=1;
-    j+=1;
   }
-  console.log("clicked8");
   chkWin();
 });
 $("#sq9").click(function() {
-  if (!$('#char9').hasClass('black') || $('#char1').hasClass('busy')) {
+  if (localStorage[28] === 'black' || localStorage[38] === 'busy') {
     return false;
   } else {
-    $('#char9').removeClass("black").addClass(localStorage[j]).attr("src", localStorage[i]);
+    localStorage.setItem(28, localStorage[18]);
+    $('#char9').attr("src", localStorage[i]);
     i+=1;
-    j+=1;
   }
-  console.log("clicked9");
   chkWin();
 });
 
 $('#refresh').click(function() {
     location.reload();
 });
-
-// $(document).click(function() {
-//   console.log('doc was clicked');
-//   if ($('#char1').hasClass('ex') && $('#char2').hasClass('ex') && $('#char3').hasClass('ex')) {
-//     console.log("x wins");
-//   }
-// });
 
 });
